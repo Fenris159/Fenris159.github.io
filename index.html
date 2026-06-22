@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Fenris159 builds commander tools, companion plugins, and practical .NET libraries."
+    >
+    <meta name="theme-color" content="#0b0f0a">
+    <meta property="og:title" content="Fenris159">
+    <meta
+      property="og:description"
+      content="Projects and engineering notes from Fenris159: RavenColonial, EDMC tooling, and GameInputSharp.Core."
+    >
+    <meta property="og:type" content="website">
+    <title>Fenris159 | Projects</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <canvas id="stars" aria-hidden="true"></canvas>
+    <div class="page-shell">
+      <header class="site-header" aria-label="Primary">
+        <a class="brand" href="#top" aria-label="Fenris159 home">
+          <span class="brand-mark">F159</span>
+          <span>Fenris159</span>
+        </a>
+        <nav class="nav-links" aria-label="Page sections">
+          <a href="#projects">Projects</a>
+          <a href="#stack">Stack</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero section-band" aria-labelledby="hero-title">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="eyebrow">Commander tooling / web systems / .NET interop</p>
+              <h1 id="hero-title">Fenris159</h1>
+              <p class="hero-lede">
+                I build practical software for players and developers: colony planning tools,
+                EDMC companion workflows, release pipelines, and native input libraries that
+                survive contact with real machines.
+              </p>
+              <div class="hero-actions">
+                <a class="button button-primary" href="#projects">View Projects</a>
+                <a class="button button-secondary" href="https://github.com/Fenris159">GitHub</a>
+              </div>
+            </div>
+
+            <aside class="signal-panel" aria-label="Current focus">
+              <div class="signal-header">
+                <span class="pulse-dot"></span>
+                <span>Active Build Queue</span>
+              </div>
+              <dl class="signal-list">
+                <div>
+                  <dt>RavenColonial</dt>
+                  <dd>Economy modeling, visual guides, site workflows</dd>
+                </div>
+                <div>
+                  <dt>EDMC Plugin</dt>
+                  <dd>Overlay tracking, updater hardening, localization</dd>
+                </div>
+                <div>
+                  <dt>GameInputSharp.Core</dt>
+                  <dd>Stable .NET package and CI-ready runtime checks</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section-wrap intro" aria-label="Profile summary">
+          <div class="intro-stat">
+            <strong>Player-first</strong>
+            <span>Tools tuned against live workflows, logs, and real edge cases.</span>
+          </div>
+          <div class="intro-stat">
+            <strong>Release-minded</strong>
+            <span>Version files, changelogs, packages, and automation kept in sync.</span>
+          </div>
+          <div class="intro-stat">
+            <strong>Pragmatic</strong>
+            <span>Small fixes, concrete verification, and maintainable code paths.</span>
+          </div>
+        </section>
+
+        <section id="projects" class="section-wrap projects-section" aria-labelledby="projects-title">
+          <div class="section-heading">
+            <p class="eyebrow">Selected work</p>
+            <h2 id="projects-title">Projects Worth Tracking</h2>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card project-featured">
+              <div class="project-kicker">Web App</div>
+              <h3>RavenColonial</h3>
+              <p>
+                A web platform for Elite Dangerous colonization planning, economy modeling,
+                visual identification, and system comparison workflows.
+              </p>
+              <ul class="tag-list" aria-label="RavenColonial highlights">
+                <li>Economy model</li>
+                <li>Visual guide</li>
+                <li>Live comparisons</li>
+                <li>Player docs</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://ravencolonial.com">Live Site</a>
+                <a href="https://github.com/Fenris159/RavenColonialWeb">Source</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-kicker">EDMC Companion</div>
+              <h3>RavenColonial EDMC</h3>
+              <p>
+                A companion plugin that brings build project tracking into EDMarketConnector,
+                including overlay workflows, aggregate tracking, and safer update handling.
+              </p>
+              <ul class="tag-list" aria-label="RavenColonial EDMC highlights">
+                <li>Track All overlay</li>
+                <li>Digest checks</li>
+                <li>Locale parity</li>
+                <li>Windows-safe updater</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/Fenris159/ravencolonial_edmc">Source</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-kicker">.NET Library</div>
+              <h3>GameInputSharp.Core</h3>
+              <p>
+                A practical C# wrapper around Microsoft GameInput, packaged for NuGet with
+                CI behavior that handles real runner and hardware differences.
+              </p>
+              <ul class="tag-list" aria-label="GameInputSharp.Core highlights">
+                <li>NuGet package</li>
+                <li>GameInput interop</li>
+                <li>CI diagnostics</li>
+                <li>Release notes</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/Fenris159/GameInputSharp.Core">Source</a>
+                <a href="https://www.nuget.org/packages/GameInputSharp.Core">NuGet</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="stack" class="section-band stack-section" aria-labelledby="stack-title">
+          <div class="section-wrap stack-grid">
+            <div class="section-heading">
+              <p class="eyebrow">How I tend to build</p>
+              <h2 id="stack-title">Engineering Style</h2>
+            </div>
+            <div class="stack-list">
+              <article>
+                <span>01</span>
+                <h3>Start from the runtime path</h3>
+                <p>Logs, crash reports, live endpoints, and named examples come before theory.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Keep releases coherent</h3>
+                <p>Versions, changelogs, package metadata, and workflow output should agree.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Design for messy machines</h3>
+                <p>Windows file locks, optional hardware, CI variance, and user-local state are real inputs.</p>
+              </article>
+              <article>
+                <span>04</span>
+                <h3>Write for players</h3>
+                <p>Tools and docs should explain the action to take, not the architecture behind it.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="section-wrap contact-section" aria-labelledby="contact-title">
+          <div>
+            <p class="eyebrow">Find me</p>
+            <h2 id="contact-title">Fenris159 on GitHub</h2>
+            <p>
+              Most of my public work lives around player tooling, Elite Dangerous workflows,
+              package maintenance, and automation that keeps projects shippable.
+            </p>
+          </div>
+          <a class="button button-primary" href="https://github.com/Fenris159">Open GitHub Profile</a>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
