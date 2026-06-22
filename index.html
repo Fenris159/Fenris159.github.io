@@ -27,6 +27,7 @@
         </a>
         <nav class="nav-links" aria-label="Page sections">
           <a href="#projects">Projects</a>
+          <a href="#repos">Repos</a>
           <a href="#stack">Stack</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -56,16 +57,16 @@
               </div>
               <dl class="signal-list">
                 <div>
-                  <dt>RavenColonial</dt>
-                  <dd>Economy modeling, visual guides, site workflows</dd>
-                </div>
-                <div>
-                  <dt>EDMC Plugin</dt>
+                  <dt>RavenColonial EDMC</dt>
                   <dd>Overlay tracking, updater hardening, localization</dd>
                 </div>
                 <div>
                   <dt>GameInputSharp.Core</dt>
                   <dd>Stable .NET package and CI-ready runtime checks</dd>
+                </div>
+                <div>
+                  <dt>Input and assistant tools</dt>
+                  <dd>Force feedback, TTS workflows, and local productivity plugins</dd>
                 </div>
               </dl>
             </aside>
@@ -95,25 +96,6 @@
 
           <div class="project-grid">
             <article class="project-card project-featured">
-              <div class="project-kicker">Web App</div>
-              <h3>RavenColonial</h3>
-              <p>
-                A web platform for Elite Dangerous colonization planning, economy modeling,
-                visual identification, and system comparison workflows.
-              </p>
-              <ul class="tag-list" aria-label="RavenColonial highlights">
-                <li>Economy model</li>
-                <li>Visual guide</li>
-                <li>Live comparisons</li>
-                <li>Player docs</li>
-              </ul>
-              <div class="project-links">
-                <a href="https://ravencolonial.com">Live Site</a>
-                <a href="https://github.com/Fenris159/RavenColonialWeb">Source</a>
-              </div>
-            </article>
-
-            <article class="project-card">
               <div class="project-kicker">EDMC Companion</div>
               <h3>RavenColonial EDMC</h3>
               <p>
@@ -147,6 +129,98 @@
               <div class="project-links">
                 <a href="https://github.com/Fenris159/GameInputSharp.Core">Source</a>
                 <a href="https://www.nuget.org/packages/GameInputSharp.Core">NuGet</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-kicker">Assistant Workflow</div>
+              <h3>OpenClaw Discord TTS Attacher</h3>
+              <p>
+                A Discord-focused plugin that turns assistant text replies into spoken MP3
+                attachments for more natural voice channel workflows.
+              </p>
+              <ul class="tag-list" aria-label="OpenClaw Discord TTS Attacher highlights">
+                <li>Discord</li>
+                <li>TTS</li>
+                <li>JavaScript</li>
+                <li>Assistant tooling</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/Fenris159/OpenClaw_Discord-TTS-Attacher">Source</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="repos" class="section-wrap repo-section" aria-labelledby="repos-title">
+          <div class="section-heading">
+            <p class="eyebrow">Live GitHub signal</p>
+            <h2 id="repos-title">Top 5 Tracked Repos</h2>
+            <p>
+              Ranked by stars, then forks, then latest push. The RavenColonial website repo is
+              intentionally excluded; RavenColonial EDMC is included.
+            </p>
+          </div>
+
+          <div id="repo-tracker" class="repo-tracker" aria-live="polite">
+            <article class="repo-row">
+              <div>
+                <span class="repo-rank">01</span>
+                <h3><a href="https://github.com/Fenris159/EDMC_GalaxyGPS">EDMC_GalaxyGPS</a></h3>
+                <p>A plugin for EDMC to make your life easier when using Spansh updated to support Fleet Carriers</p>
+              </div>
+              <div class="repo-meta">
+                <span>Python</span>
+                <span>7 stars</span>
+                <span>2 forks</span>
+              </div>
+            </article>
+            <article class="repo-row">
+              <div>
+                <span class="repo-rank">02</span>
+                <h3><a href="https://github.com/Fenris159/ravencolonial_edmc">ravencolonial_edmc</a></h3>
+                <p>EDMC companion plugin for colonization tracking, overlay workflows, and update handling.</p>
+              </div>
+              <div class="repo-meta">
+                <span>Python</span>
+                <span>4 stars</span>
+                <span>1 fork</span>
+              </div>
+            </article>
+            <article class="repo-row">
+              <div>
+                <span class="repo-rank">03</span>
+                <h3><a href="https://github.com/Fenris159/GameInputSharp.Core">GameInputSharp.Core</a></h3>
+                <p>Idiomatic C# wrapper for Microsoft GameInput for .NET 8+ on Windows.</p>
+              </div>
+              <div class="repo-meta">
+                <span>C#</span>
+                <span>3 stars</span>
+                <span>0 forks</span>
+              </div>
+            </article>
+            <article class="repo-row">
+              <div>
+                <span class="repo-rank">04</span>
+                <h3><a href="https://github.com/Fenris159/EDForceFeedbackXinput">EDForceFeedbackXinput</a></h3>
+                <p>Elite Dangerous force feedback with XInput support.</p>
+              </div>
+              <div class="repo-meta">
+                <span>C#</span>
+                <span>3 stars</span>
+                <span>0 forks</span>
+              </div>
+            </article>
+            <article class="repo-row">
+              <div>
+                <span class="repo-rank">05</span>
+                <h3><a href="https://github.com/Fenris159/OpenClaw_Discord-TTS-Attacher">OpenClaw_Discord-TTS-Attacher</a></h3>
+                <p>Turns assistant Discord text replies into spoken MP3 attachments.</p>
+              </div>
+              <div class="repo-meta">
+                <span>JavaScript</span>
+                <span>1 star</span>
+                <span>0 forks</span>
               </div>
             </article>
           </div>

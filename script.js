@@ -1,6 +1,11 @@
 const canvas = document.querySelector("#stars");
 const ctx = canvas.getContext("2d");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const repoTracker = document.querySelector("#repo-tracker");
+const excludedRepoNames = new Set(["ravencolonialweb", "fenris159.github.io"]);
+const repoDescriptionOverrides = new Map([
+  ["ravencolonial_edmc", "EDMC companion plugin for colonization tracking, overlay workflows, and update handling."],
+]);
 
 let width = 0;
 let height = 0;
@@ -91,6 +96,105 @@ function start() {
   draw();
 }
 
+function formatDate(value) {
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(value));
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (character) => {
+    const entities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+    return entities[character];
+  });
+}
+
+function repoDescription(repo) {
+  const override = repoDescriptionOverrides.get(repo.name.toLowerCase());
+  if (override) {
+    return override;
+  }
+
+  return repo.description || "Public GitHub repository tracked from Fenris159's profile.";
+}
+
+function renderRepos(repos) {
+  if (!repoTracker || !repos.length) {
+    return;
+  }
+
+  repoTracker.innerHTML = repos
+    .map((repo, index) => {
+      const rank = String(index + 1).padStart(2, "0");
+      const language = repo.language || "Mixed";
+      const stars = repo.stargazers_count === 1 ? "1 star" : `${repo.stargazers_count} stars`;
+      const forks = repo.forks_count === 1 ? "1 fork" : `${repo.forks_count} forks`;
+      const pushed = repo.pushed_at ? `Updated ${formatDate(repo.pushed_at)}` : "Recently updated";
+      const safeUrl = escapeHtml(repo.html_url);
+      const safeName = escapeHtml(repo.name);
+      const safeDescription = escapeHtml(repoDescription(repo));
+
+      return `
+        <article class="repo-row">
+          <div>
+            <span class="repo-rank">${rank}</span>
+            <h3><a href="${safeUrl}">${safeName}</a></h3>
+            <p>${safeDescription}</p>
+          </div>
+          <div class="repo-meta">
+            <span>${escapeHtml(language)}</span>
+            <span>${stars}</span>
+            <span>${forks}</span>
+            <span>${pushed}</span>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+async function loadTopRepos() {
+  if (!repoTracker) {
+    return;
+  }
+
+  try {
+    const response = await fetch("https://api.github.com/users/Fenris159/repos?per_page=100&sort=updated", {
+      headers: { Accept: "application/vnd.github+json" },
+    });
+
+    if (!response.ok) {
+      throw new Error(`GitHub returned ${response.status}`);
+    }
+
+    const repos = await response.json();
+    const topRepos = repos
+      .filter((repo) => !excludedRepoNames.has(repo.name.toLowerCase()))
+      .sort((left, right) => {
+        const stars = right.stargazers_count - left.stargazers_count;
+        if (stars) return stars;
+
+        const forks = right.forks_count - left.forks_count;
+        if (forks) return forks;
+
+        return new Date(right.pushed_at || 0) - new Date(left.pushed_at || 0);
+      })
+      .slice(0, 5);
+
+    renderRepos(topRepos);
+  } catch (error) {
+    repoTracker.dataset.state = "fallback";
+  }
+}
+
 window.addEventListener("resize", resize);
 window.addEventListener("pointermove", (event) => {
   pointer = { x: event.clientX, y: event.clientY, active: true };
@@ -102,3 +206,4 @@ reducedMotion.addEventListener("change", start);
 
 resize();
 start();
+loadTopRepos();
