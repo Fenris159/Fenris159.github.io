@@ -36,17 +36,17 @@ function resize() {
 
 function colorFor(star, alpha) {
   if (star.hue === "amber") {
-    return `rgba(255, 206, 115, ${alpha})`;
+    return `rgba(255, 54, 95, ${alpha})`;
   }
   if (star.hue === "cyan") {
-    return `rgba(92, 230, 223, ${alpha})`;
+    return `rgba(118, 216, 255, ${alpha})`;
   }
-  return `rgba(209, 255, 184, ${alpha})`;
+  return `rgba(215, 243, 255, ${alpha})`;
 }
 
 function draw() {
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = "#060706";
+  ctx.fillStyle = "#050912";
   ctx.fillRect(0, 0, width, height);
 
   const time = performance.now() * 0.001;
@@ -81,7 +81,7 @@ function draw() {
 
     if (pull > 0.4) {
       ctx.beginPath();
-      ctx.strokeStyle = `rgba(136, 255, 143, ${pull * 0.16})`;
+      ctx.strokeStyle = `rgba(255, 37, 79, ${pull * 0.16})`;
       ctx.moveTo(star.x, star.y);
       ctx.lineTo(pointer.x, pointer.y);
       ctx.stroke();

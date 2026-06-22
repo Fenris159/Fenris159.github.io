@@ -1,17 +1,19 @@
 :root {
   color-scheme: dark;
-  --bg: #060706;
-  --bg-soft: #0d120c;
-  --panel: rgba(13, 18, 12, 0.82);
-  --panel-strong: rgba(18, 25, 15, 0.94);
-  --line: rgba(198, 247, 122, 0.24);
-  --line-bright: rgba(119, 255, 190, 0.45);
-  --text: #edf7e8;
-  --muted: #aab7a2;
-  --green: #88ff8f;
-  --cyan: #5ce6df;
-  --amber: #ffce73;
-  --ember: #ff7b54;
+  --bg: #050912;
+  --bg-soft: #0a1220;
+  --panel: rgba(9, 18, 31, 0.82);
+  --panel-strong: rgba(10, 19, 35, 0.94);
+  --line: rgba(144, 211, 255, 0.24);
+  --line-bright: rgba(116, 207, 255, 0.48);
+  --text: #eef7ff;
+  --muted: #a9bdd0;
+  --green: #76d8ff;
+  --cyan: #8adfff;
+  --amber: #ff365f;
+  --ember: #ff5ba8;
+  --ice: #d7f3ff;
+  --crimson: #ff254f;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -33,9 +35,9 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 18% 22%, rgba(136, 255, 143, 0.14), transparent 28rem),
-    radial-gradient(circle at 85% 12%, rgba(92, 230, 223, 0.1), transparent 24rem),
-    linear-gradient(135deg, #060706 0%, #091007 50%, #120d08 100%);
+    radial-gradient(circle at 18% 22%, rgba(118, 216, 255, 0.15), transparent 28rem),
+    radial-gradient(circle at 85% 12%, rgba(255, 37, 79, 0.1), transparent 24rem),
+    linear-gradient(135deg, #050912 0%, #07101d 52%, #120714 100%);
   color: var(--text);
 }
 
@@ -72,8 +74,8 @@ button:focus-visible {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(rgba(136, 255, 143, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(136, 255, 143, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(118, 216, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 54, 95, 0.03) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 72%);
 }
@@ -111,10 +113,10 @@ button:focus-visible {
   height: 42px;
   border: 1px solid var(--line-bright);
   border-radius: 8px;
-  background: linear-gradient(135deg, rgba(136, 255, 143, 0.2), rgba(255, 206, 115, 0.12));
+  background: linear-gradient(135deg, rgba(118, 216, 255, 0.22), rgba(255, 37, 79, 0.14));
   color: var(--green);
   font-size: 0.78rem;
-  box-shadow: 0 0 26px rgba(136, 255, 143, 0.14);
+  box-shadow: 0 0 26px rgba(118, 216, 255, 0.18);
 }
 
 .nav-links {
@@ -133,7 +135,7 @@ button:focus-visible {
 }
 
 .nav-links a:hover {
-  background: rgba(136, 255, 143, 0.12);
+  background: rgba(118, 216, 255, 0.12);
   color: var(--text);
 }
 
@@ -196,7 +198,8 @@ h1 {
   letter-spacing: 0;
   text-transform: uppercase;
   text-shadow:
-    0 0 22px rgba(136, 255, 143, 0.26),
+    0 0 22px rgba(118, 216, 255, 0.32),
+    0 0 34px rgba(255, 37, 79, 0.16),
     0 12px 60px rgba(0, 0, 0, 0.72);
 }
 
@@ -242,14 +245,14 @@ h3 {
 }
 
 .button-primary {
-  background: linear-gradient(135deg, var(--green), var(--cyan));
-  color: #061006;
-  box-shadow: 0 12px 36px rgba(92, 230, 223, 0.18);
+  background: linear-gradient(135deg, var(--ice), var(--green) 55%, var(--crimson));
+  color: #06101b;
+  box-shadow: 0 12px 36px rgba(118, 216, 255, 0.18);
 }
 
 .button-secondary {
   border-color: var(--line);
-  background: rgba(6, 7, 6, 0.44);
+  background: rgba(5, 9, 18, 0.48);
   color: var(--text);
 }
 
@@ -259,6 +262,7 @@ h3 {
 }
 
 .signal-panel,
+.profile-card,
 .project-card,
 .intro-stat,
 .stack-list article,
@@ -281,7 +285,75 @@ h3 {
   inset: auto -16% -42% 10%;
   height: 190px;
   content: "";
-  background: radial-gradient(circle, rgba(255, 206, 115, 0.2), transparent 68%);
+  background: radial-gradient(circle, rgba(255, 37, 79, 0.18), transparent 68%);
+}
+
+.hero-side {
+  display: grid;
+  gap: 16px;
+}
+
+.profile-card {
+  position: relative;
+  overflow: hidden;
+  padding: 14px;
+  background:
+    radial-gradient(circle at 28% 12%, rgba(215, 243, 255, 0.16), transparent 32%),
+    radial-gradient(circle at 76% 64%, rgba(255, 37, 79, 0.2), transparent 34%),
+    rgba(9, 18, 31, 0.84);
+}
+
+.profile-card::before {
+  position: absolute;
+  inset: -30% auto auto -14%;
+  width: 190px;
+  height: 190px;
+  content: "";
+  background: radial-gradient(circle, rgba(118, 216, 255, 0.24), transparent 68%);
+}
+
+.profile-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(144, 211, 255, 0.26);
+  border-radius: 8px;
+  aspect-ratio: 1;
+  background: #09121f;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 42px rgba(255, 37, 79, 0.14),
+    0 0 72px rgba(118, 216, 255, 0.12);
+}
+
+.profile-frame::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(215, 243, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 68% 36%, rgba(255, 37, 79, 0.24), transparent 20%);
+  mix-blend-mode: screen;
+}
+
+.profile-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-caption {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  color: var(--ice);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .signal-header {
@@ -300,8 +372,8 @@ h3 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 0 0 rgba(136, 255, 143, 0.58);
+  background: var(--crimson);
+  box-shadow: 0 0 0 0 rgba(255, 37, 79, 0.58);
   animation: pulse 1.8s infinite;
 }
 
@@ -339,7 +411,7 @@ h3 {
 
 .intro-stat {
   padding: 20px;
-  background: rgba(13, 18, 12, 0.66);
+  background: rgba(9, 18, 31, 0.68);
 }
 
 .intro-stat strong {
@@ -384,7 +456,7 @@ h3 {
   min-height: 360px;
   padding: 26px;
   background:
-    linear-gradient(150deg, rgba(136, 255, 143, 0.08), transparent 44%),
+    linear-gradient(150deg, rgba(118, 216, 255, 0.08), transparent 44%),
     var(--panel-strong);
 }
 
@@ -399,8 +471,8 @@ h3 {
   justify-content: flex-end;
   min-height: 100%;
   background:
-    radial-gradient(circle at 28% 18%, rgba(92, 230, 223, 0.2), transparent 18rem),
-    radial-gradient(circle at 80% 76%, rgba(255, 123, 84, 0.16), transparent 17rem),
+    radial-gradient(circle at 28% 18%, rgba(118, 216, 255, 0.2), transparent 18rem),
+    radial-gradient(circle at 80% 76%, rgba(255, 37, 79, 0.17), transparent 17rem),
     var(--panel-strong);
 }
 
@@ -426,15 +498,15 @@ h3 {
   padding: 7px 9px;
   border: 1px solid rgba(237, 247, 232, 0.1);
   border-radius: 999px;
-  background: rgba(6, 7, 6, 0.42);
-  color: #d8e6d0;
+  background: rgba(5, 9, 18, 0.44);
+  color: #d9efff;
   font-size: 0.82rem;
 }
 
 .project-links a {
   padding: 0 14px;
   border: 1px solid var(--line);
-  background: rgba(136, 255, 143, 0.08);
+  background: rgba(118, 216, 255, 0.08);
   color: var(--text);
 }
 
@@ -450,8 +522,8 @@ h3 {
   align-items: center;
   padding: 20px;
   background:
-    linear-gradient(90deg, rgba(136, 255, 143, 0.09), transparent 40%),
-    rgba(13, 18, 12, 0.76);
+    linear-gradient(90deg, rgba(118, 216, 255, 0.09), transparent 40%),
+    rgba(9, 18, 31, 0.76);
 }
 
 .repo-row:hover {
@@ -472,7 +544,7 @@ h3 {
 }
 
 .repo-row h3 a:hover {
-  color: var(--green);
+  color: var(--ice);
 }
 
 .repo-row p {
@@ -494,8 +566,8 @@ h3 {
   padding: 7px 9px;
   border: 1px solid rgba(237, 247, 232, 0.1);
   border-radius: 999px;
-  background: rgba(6, 7, 6, 0.42);
-  color: #d8e6d0;
+  background: rgba(5, 9, 18, 0.44);
+  color: #d9efff;
   font-size: 0.8rem;
   white-space: nowrap;
 }
@@ -518,7 +590,7 @@ h3 {
 
 .stack-list article {
   padding: 22px;
-  background: rgba(13, 18, 12, 0.72);
+  background: rgba(9, 18, 31, 0.72);
 }
 
 .stack-list span {
@@ -544,10 +616,10 @@ h3 {
 
 @keyframes pulse {
   70% {
-    box-shadow: 0 0 0 12px rgba(136, 255, 143, 0);
+    box-shadow: 0 0 0 12px rgba(255, 37, 79, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(136, 255, 143, 0);
+    box-shadow: 0 0 0 0 rgba(255, 37, 79, 0);
   }
 }
 
@@ -578,6 +650,7 @@ h3 {
   }
 
   .hero-grid,
+  .hero-side,
   .stack-grid {
     grid-template-columns: 1fr;
   }
@@ -636,6 +709,7 @@ h3 {
   }
 
   .signal-panel,
+  .profile-card,
   .project-card,
   .intro-stat,
   .stack-list article,
