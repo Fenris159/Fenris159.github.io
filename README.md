@@ -1,3 +1,3 @@
-# Fenris159.github.io
+# Fenris
 
-Personal GitHub Pages site for Fenris159.
+Personal GitHub Pages site for Fenris.

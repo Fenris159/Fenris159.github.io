@@ -123,7 +123,7 @@ function repoDescription(repo) {
     return override;
   }
 
-  return repo.description || "Public GitHub repository tracked from Fenris159's profile.";
+  return repo.description || "Public GitHub repository tracked from Fenris's profile.";
 }
 
 function renderRepos(repos) {
