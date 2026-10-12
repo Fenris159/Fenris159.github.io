@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="SrvSurvey-XP is an open-source Elite Dangerous companion for Windows and Linux. Explore, mine, navigate and build with live overlays, surveys and useful tools."
+    />
+    <meta name="theme-color" content="#08121c" />
+    <meta property="og:title" content="SrvSurvey-XP — Your galaxy, in view" />
+    <meta
+      property="og:description"
+      content="An Elite Dangerous companion for exploration, exobiology, mining, navigation and colonization. Free and open source, for Windows and Linux."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fenris159.github.io/srvsurvey/" />
+    <meta
+      property="og:image"
+      content="https://fenris159.github.io/srvsurvey/assets/logo.png"
+    />
+    <link rel="canonical" href="https://fenris159.github.io/srvsurvey/" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="stylesheet" href="site.css" />
+    <script src="site.js" defer></script>
+    <title>SrvSurvey-XP | Elite Dangerous companion</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="SrvSurvey-XP home"
+        ><img src="assets/logo.png" width="44" height="44" alt="" /><span
+          >SrvSurvey<span class="brand-xp">-XP</span></span
+        ></a
+      >
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navigation"
+      >
+        Menu <span aria-hidden="true">☰</span>
+      </button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#features">Features</a><a href="#mining">Mining</a
+        ><a href="#gallery">Gallery</a><a href="#integrations">Connections</a>
+        <a class="nav-download" href="#download"
+          >Download <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="signal-dot" aria-hidden="true"></span> Elite Dangerous
+            · Commander’s companion
+          </p>
+          <h1 id="hero-title">Your galaxy,<br /><em>in view.</em></h1>
+          <p class="lede">
+            Discover your next world. Find a better mining loop. Keep your
+            colony supplied. SrvSurvey-XP brings your journey into focus with
+            tools and overlays that follow the game.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#download"
+              >Get SrvSurvey-XP <span aria-hidden="true">↓</span></a
+            ><a class="button secondary" href="#features"
+              >Explore the tools <span aria-hidden="true">→</span></a
+            >
+          </div>
+          <ul class="hero-facts" aria-label="Platform and project information">
+            <li>Windows &amp; Linux</li>
+            <li>Free &amp; open source</li>
+            <li>7 interface languages</li>
+          </ul>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit orbit-one" aria-hidden="true"></div>
+          <div class="orbit orbit-two" aria-hidden="true"></div>
+          <div class="logo-beacon">
+            <img
+              src="assets/logo.png"
+              width="1024"
+              height="1024"
+              alt="SrvSurvey-XP’s gold and cyan emblem"
+            />
+          </div>
+          <div class="flight-note note-top">
+            <span class="tiny-label">EXPLORATION / EXOBIOLOGY</span
+            ><strong>Every discovery, accounted for.</strong>
+          </div>
+          <div class="flight-note note-bottom">
+            <span class="tiny-label">MINING / NAVIGATION / COLONIZATION</span
+            ><strong>Your next move, made clearer.</strong>
+          </div>
+          <span class="coordinates" aria-hidden="true"
+            >SRV / XP &nbsp; · &nbsp; JOURNAL → INSIGHT</span
+          >
+        </div>
+      </section>
+
+      <section class="cockpit shell" aria-labelledby="cockpit-title">
+        <div class="section-heading inline-heading">
+          <div>
+            <p class="eyebrow">Information where you need it</p>
+            <h2 id="cockpit-title">Keep your eyes on the galaxy.</h2>
+          </div>
+          <p>
+            Contextual panels put useful information over the game. Arrange the
+            ones you need, tune their appearance, and keep flying.
+          </p>
+        </div>
+        <figure class="wide-shot">
+          <a
+            href="assets/overlay-editor.png"
+            class="image-link"
+            data-lightbox
+            data-caption="Surface Mining panels in the overlay position editor. This screenshot shows editing controls, rather than a normal live overlay layout."
+            aria-label="Enlarge overlay position editor screenshot"
+            ><img
+              src="assets/overlay-editor.png"
+              width="3840"
+              height="2154"
+              alt="Surface Mining overlays arranged over the Rhino cockpit, with map, rig tracking, mining reference and position editor controls"
+              fetchpriority="high"
+          /></a>
+          <figcaption>
+            <span class="shot-label">IN-GAME OVERLAY POSITION EDITOR</span
+            ><span
+              >Real application screenshot · select to enlarge
+              <span aria-hidden="true">↗</span></span
+            >
+          </figcaption>
+        </figure>
+        <div class="capability-strip">
+          <div>
+            <span>01 / CONTEXT</span><strong>Follows your session</strong>
+            <p>Journal-driven state, from orbit to the surface.</p>
+          </div>
+          <div>
+            <span>02 / CONTROL</span><strong>A cockpit that fits you</strong>
+            <p>Panel placement, opacity, scale, colors and shortcuts.</p>
+          </div>
+          <div>
+            <span>03 / CONTINUITY</span><strong>Keep your progress</strong>
+            <p>Saved work, local backups and optional Drive sync.</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="features"
+        class="shell section"
+        aria-labelledby="features-title"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">A companion for the way you play</p>
+          <h2 id="features-title">One galaxy. Plenty to do.</h2>
+          <p>
+            From a single organic sample to an entire construction project,
+            follow the details without losing the bigger picture.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature-number">01</span>
+            <h3>Exploration &amp; exobiology</h3>
+            <p>
+              Turn scans into a useful picture of the system, its organisms and
+              your rewards.
+            </p>
+            <ul>
+              <li>FSS / DSS progress and estimated exploration value</li>
+              <li>
+                Biology predictions, sample-distance guidance and first-footfall
+                tracking
+              </li>
+              <li>Codex reference, regional progress and Codex Bingo</li>
+              <li>Procedural boxel searches and completion audits</li>
+            </ul>
+          </article>
+          <article class="feature">
+            <span class="feature-number">02</span>
+            <h3>Navigation &amp; journeys</h3>
+            <p>
+              Plan the next leg and remember the places worth coming back to.
+            </p>
+            <ul>
+              <li>Saved journeys with systems, statistics and screenshots</li>
+              <li>Spansh route imports, refuel and neutron guidance</li>
+              <li>Spherical, nearby-system and biology searches</li>
+              <li>System, body, ring and surface bookmarks with notes</li>
+            </ul>
+          </article>
+          <article class="feature">
+            <span class="feature-number">03</span>
+            <h3>Ship &amp; surface mining</h3>
+            <p>
+              Find opportunities, record your sessions and build reusable
+              planetary maps.
+            </p>
+            <ul>
+              <li>Powerplay merit searches for rings and landable bodies</li>
+              <li>Surface profit searches with nearby selling stations</li>
+              <li>Prospector results, refinery output, cargo and reports</li>
+              <li>Rhino survey routes, deposit maps and six-rig tracking</li>
+            </ul>
+          </article>
+          <article class="feature">
+            <span class="feature-number">04</span>
+            <h3>Colonization &amp; carriers</h3>
+            <p>
+              Keep construction requirements and supplies in view as your
+              project grows.
+            </p>
+            <ul>
+              <li>Raven Colonial projects, deliveries and payment estimates</li>
+              <li>Commodity requirements and Fleet Carrier supply planning</li>
+              <li>Configurable NEED, FC, SHIP and combined cargo views</li>
+              <li>Fleet Carrier routes, jump phases and live countdowns</li>
+            </ul>
+          </article>
+          <article class="feature">
+            <span class="feature-number">05</span>
+            <h3>Guardian sites &amp; surface work</h3>
+            <p>
+              Bring structure to surveys, local visits and on-the-ground
+              navigation.
+            </p>
+            <ul>
+              <li>Guardian ruins and structure maps with editable markers</li>
+              <li>POIs, pylons, obelisks, relic headings and Ram Tah logs</li>
+              <li>Ground-target guidance and settlement reference data</li>
+              <li>Local quests with objectives and journal-driven progress</li>
+            </ul>
+          </article>
+          <article class="feature">
+            <span class="feature-number">06</span>
+            <h3>Your commander workspace</h3>
+            <p>
+              Keep your ship, session and preferences together in a configurable
+              desktop app.
+            </p>
+            <ul>
+              <li>
+                Commander overview and isolated profiles for multiple commanders
+              </li>
+              <li>Firegroups reference and cockpit-view visibility controls</li>
+              <li>Massacre mission and ship / on-foot combat tracking</li>
+              <li>
+                Themes, searchable settings, Guides and journal diagnostics
+              </li>
+            </ul>
+          </article>
+        </div>
+        <div class="detail-list">
+          <details>
+            <summary>
+              Overlays, themes &amp; accessibility<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <div class="detail-content">
+              <p>
+                Choose Blue, Green or Monochrome application themes in light and
+                dark variants, then customize in-game overlay palettes
+                independently. The visual editor supports dragging panels,
+                anchors, per-panel scale and opacity, typography and visibility
+                controls. Keyboard and controller shortcuts provide quick access
+                during play.
+              </p>
+              <p>
+                The interface includes English, Deutsch, Español, Français,
+                Português (Brasil), Русский and 简体中文. Searchable Guides
+                organize instructions by subject; settings search and horizontal
+                table scrolling help with larger workspaces.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              Reports, bookmarks &amp; saved work<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <div class="detail-content">
+              <p>
+                Keep current and historical mining reports, notes, screenshots
+                and manual refinery estimates. Export offline HTML reports for
+                printing or PDF, import CSV history, and make ZIP mining
+                backups. Bookmarks support categories, notes, screenshot
+                attachments and JSON import/export; Surface Mining adds
+                favorites and deposit details.
+              </p>
+              <p>
+                Optional Google Drive sync carries supported settings and saved
+                work between machines. Machine-dependent overlay positions,
+                monitor choices and capture calibration stay tied to their
+                originating computer. Local backup and restore work without a
+                Google account.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              Diagnostics, migration &amp; platform support<span
+                aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <div class="detail-content">
+              <p>
+                Inspect journal sources, individual events, parsed live state
+                and application logs. Historical journals can rebuild state;
+                exported diagnostic replays help reproduce issues. An importer
+                can bring in an existing SrvSurvey profile while preserving the
+                source.
+              </p>
+              <p>
+                Windows x64 and Linux x64 packages include their runtime. Linux
+                overlays support X11 and XWayland; compositor behavior varies,
+                and pure native Wayland does not provide full overlay
+                functionality. Where supported, screen capture uses the desktop
+                portal and PipeWire, and keyboard input can use the Global
+                Shortcuts portal.
+              </p>
+              <a
+                class="text-link"
+                href="https://github.com/Fenris159/SrvSurvey/blob/SrvSurvey-Avalonia/docs/Linux_Troubleshooting.md"
+                >Read the Linux troubleshooting guide
+                <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section
+        id="mining"
+        class="mining-section section"
+        aria-labelledby="mining-title"
+      >
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Featured / mining tools</p>
+            <h2 id="mining-title">
+              Pick a purpose.<br /><span class="accent"
+                >Find a place to mine.</span
+              >
+            </h2>
+            <p>
+              Work toward your Power’s goals or plan a profitable surface loop.
+              Two searches, with the details you need to make the trip
+              worthwhile.
+            </p>
+          </div>
+          <div class="mining-grid">
+            <article class="mining-card">
+              <div class="mining-copy">
+                <span class="tiny-label">MINING → POWERPLAY</span>
+                <h3>Mine for merits.</h3>
+                <p>
+                  Search for your chosen Power and objective.
+                  <strong>Planetary Mining</strong> brings landable bodies
+                  alongside traditional ring mining, with commodity, opposing
+                  Power, system-state, market-age, demand and landing-pad
+                  filters.
+                </p>
+              </div>
+              <a
+                class="image-link"
+                href="assets/powerplay-mining-search.png"
+                data-lightbox
+                data-caption="Powerplay mining search with Planetary Mining selected. Prices and results are examples from the captured session."
+                aria-label="Enlarge Powerplay mining search screenshot"
+                ><img
+                  src="assets/powerplay-mining-search.png"
+                  width="2208"
+                  height="1888"
+                  alt="Powerplay merit mining search with Planetary Mining selected and landable-body results"
+                  loading="lazy"
+              /></a>
+            </article>
+            <article class="mining-card">
+              <div class="mining-copy">
+                <span class="tiny-label">SURFACE MINING → SEARCH</span>
+                <h3>Mine for profit.</h3>
+                <p>
+                  Connect promising landable bodies with nearby buyers. Compare
+                  prices, demand, body details and mine-to-sell distances, then
+                  narrow the search by commodity, radius and landing-pad size.
+                </p>
+              </div>
+              <a
+                class="image-link"
+                href="assets/surface-mining-search.png"
+                data-lightbox
+                data-caption="Surface profit search pairing selling stations with mining systems. Market prices are examples and can change."
+                aria-label="Enlarge surface mining profit search screenshot"
+                ><img
+                  src="assets/surface-mining-search.png"
+                  width="2016"
+                  height="1333"
+                  alt="Surface Mining search pairing station prices and demand with nearby mining systems and body details"
+                  loading="lazy"
+              /></a>
+            </article>
+          </div>
+          <div class="survey-feature">
+            <div>
+              <p class="eyebrow">From prospect to plan</p>
+              <h3>Survey the surface.<br />Make the location yours.</h3>
+              <p>
+                Map a mining location’s border and deposits, follow a guided
+                scan route, and save your progress. Trace a deposit with
+                <code>.mine splat</code> to calculate up to six rig-placement
+                suggestions, then track your deployed rigs with distance and
+                bearing cues.
+              </p>
+              <a
+                class="text-link"
+                href="https://github.com/Fenris159/SrvSurvey/blob/SrvSurvey-Avalonia/docs/SURFACE_MINING.md"
+                >Follow the Surface Mining guide
+                <span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <div class="survey-steps">
+              <figure>
+                <a
+                  class="image-link"
+                  href="assets/splat-align-border.png"
+                  data-lightbox
+                  data-caption="Align the Rhino on the visible deposit border."
+                  aria-label="Enlarge deposit border alignment example"
+                  ><img
+                    src="assets/splat-align-border.png"
+                    width="2006"
+                    height="1362"
+                    alt="Rhino aligned on a surface deposit’s visible border"
+                    loading="lazy"
+                /></a>
+                <figcaption><b>01</b> Align on the border</figcaption>
+              </figure>
+              <figure>
+                <a
+                  class="image-link"
+                  href="assets/splat-tracing.png"
+                  data-lightbox
+                  data-caption="Trace the deposit boundary in turret mode."
+                  aria-label="Enlarge deposit tracing example"
+                  ><img
+                    src="assets/splat-tracing.png"
+                    width="886"
+                    height="726"
+                    alt="Dotted outline following a Rhino’s deposit boundary trace"
+                    loading="lazy"
+                /></a>
+                <figcaption><b>02</b> Trace the outline</figcaption>
+              </figure>
+              <figure>
+                <a
+                  class="image-link"
+                  href="assets/splat-rig-layout.png"
+                  data-lightbox
+                  data-caption="Calculated rig suggestions inside the completed deposit trace."
+                  aria-label="Enlarge rig placement example"
+                  ><img
+                    src="assets/splat-rig-layout.png"
+                    width="1000"
+                    height="606"
+                    alt="Completed deposit trace with suggested rig positions"
+                    loading="lazy"
+                /></a>
+                <figcaption><b>03</b> Plan your rig layout</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="gallery"
+        class="shell section"
+        aria-labelledby="gallery-title"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">Inside the application</p>
+          <h2 id="gallery-title">A workspace for your next session.</h2>
+          <p>
+            Real screenshots from the project. Select an image for a closer
+            look; layouts and sample values can differ by version and settings.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <figure>
+            <a
+              class="image-link"
+              href="assets/commander-overview.png"
+              data-lightbox
+              data-caption="Commander overview: active profile, journal health and session totals. Private identifiers are redacted in the source screenshot."
+              aria-label="Enlarge commander overview screenshot"
+              ><img
+                src="assets/commander-overview.png"
+                width="2122"
+                height="1424"
+                alt="Light-theme Commander overview showing journal state and session statistics"
+                loading="lazy"
+            /></a>
+            <figcaption>
+              <strong>Your session at a glance</strong
+              ><span>Commander overview &amp; journal state</span>
+            </figcaption>
+          </figure>
+          <figure>
+            <a
+              class="image-link"
+              href="assets/application-themes.png"
+              data-lightbox
+              data-caption="Blue, Green and Monochrome application themes, in coordinated light and dark variants."
+              aria-label="Enlarge application themes screenshot"
+              ><img
+                src="assets/application-themes.png"
+                width="1584"
+                height="1148"
+                alt="Application theme settings with coordinated light and dark options"
+                loading="lazy"
+            /></a>
+            <figcaption>
+              <strong>Make it feel like your cockpit</strong
+              ><span
+                >Application themes &amp; independent overlay palettes</span
+              >
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section
+        id="integrations"
+        class="shell section connections"
+        aria-labelledby="connections-title"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">Connected when you choose</p>
+          <h2 id="connections-title">
+            Community knowledge.<br />Your saved work.
+          </h2>
+          <p>
+            Public reference data enriches your tools. Account linking and
+            publication have their own controls, so you can choose which
+            optional services you use.
+          </p>
+        </div>
+        <div class="connection-layout">
+          <div class="drive-card">
+            <span class="tiny-label"
+              >OPTIONAL GOOGLE DRIVE BACKUP &amp; SYNC</span
+            >
+            <h3>Continue where<br />you left off.</h3>
+            <p>
+              Link Google Drive in
+              <strong>Settings → Data &amp; migration</strong>. Sync supported
+              settings, searches, routes, bookmarks and surveys between
+              computers, or restore a saved backup.
+            </p>
+            <ul>
+              <li>Startup sync and backup on orderly shutdown</li>
+              <li>Manual Backup now / Sync now and conflict choices</li>
+              <li>Machine-specific positions and capture settings</li>
+              <li>Cloud history, downloads and confirmed deletion</li>
+            </ul>
+            <p class="fine-print">
+              Uses Drive’s private app-data folder, with permission limited to
+              that folder. Credentials, raw journals and screenshot files are
+              excluded. Google sign-in is optional.
+            </p>
+            <a class="text-link" href="privacy.html#google-drive"
+              >Read how Google Drive data is used
+              <span aria-hidden="true">→</span></a
+            >
+          </div>
+          <div class="connection-details">
+            <div>
+              <h3>Frontier account linking</h3>
+              <p>
+                Optional OAuth linking adds commander, ship, carrier, market and
+                Community Goal information to your local dashboard. SrvSurvey
+                does not receive your Frontier password.
+              </p>
+            </div>
+            <div>
+              <h3>Reference &amp; community services</h3>
+              <p>
+                Canonn, Spansh, EDSM, Inara and other catalogs provide public
+                discovery, route, system and market information. Enabled Raven
+                Colonial workflows synchronize project and supply information.
+              </p>
+            </div>
+            <div>
+              <h3>Separate sharing controls</h3>
+              <p>
+                EDDN, Inara, direct EDSM, VoxStellar and supported discovery
+                uploads have independent opt-in requirements. Commander
+                identifiers and gameplay data may be sent when you enable the
+                relevant service.
+              </p>
+            </div>
+            <div class="privacy-note">
+              <h3>Clear about data</h3>
+              <p>
+                Local journals power the app. Daily activity reporting sends a
+                random installation ID, app version and operating system to
+                count active installations; it does not send your commander
+                name, journal or Google account.
+              </p>
+              <a class="text-link" href="privacy.html"
+                >Read the full Privacy Policy
+                <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="download"
+        class="shell section"
+        aria-labelledby="download-title"
+      >
+        <div class="download-panel">
+          <div>
+            <p class="eyebrow">Ready for your next jump?</p>
+            <h2 id="download-title">
+              Bring SrvSurvey-XP<br />along for the ride.
+            </h2>
+            <p>
+              Choose a package from the current XP release. Packaged builds
+              include their runtime, so you don’t need to install .NET
+              separately.
+            </p>
+            <a
+              class="button primary"
+              href="https://github.com/Fenris159/SrvSurvey/releases"
+              >Browse releases <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="platforms">
+            <a
+              href="https://github.com/Fenris159/SrvSurvey/blob/SrvSurvey-Avalonia/docs/INSTALL_WINDOWS.md"
+              ><span class="platform-label">WINDOWS / X64</span
+              ><strong
+                >Windows installation <span aria-hidden="true">↗</span></strong
+              ><span>Read setup and update instructions.</span></a
+            ><a
+              href="https://github.com/Fenris159/SrvSurvey/blob/SrvSurvey-Avalonia/docs/INSTALL_LINUX.md"
+              ><span class="platform-label">LINUX / X64</span
+              ><strong
+                >Linux installation <span aria-hidden="true">↗</span></strong
+              ><span
+                >AppImage and portable archive. Review overlay support for your
+                desktop.</span
+              ></a
+            ><a
+              href="https://github.com/Fenris159/SrvSurvey/blob/SrvSurvey-Avalonia/CurrentReleaseNotes.md"
+              ><strong>What’s changed <span aria-hidden="true">↗</span></strong
+              ><span>Read the current release notes.</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="shell credits section" aria-labelledby="credits-title">
+        <p class="eyebrow">Built on a community foundation</p>
+        <h2 id="credits-title">With thanks to the original SrvSurvey.</h2>
+        <p>
+          SrvSurvey-XP is the cross-platform fork maintained by
+          <a href="https://github.com/Fenris159">Fenris159</a>. The original
+          <a href="https://github.com/njthomson/SrvSurvey"
+            >SrvSurvey was created by njthomson</a
+          >, whose work and contributors made this project possible. Explore the
+          upstream project and its history, or contribute to the XP fork.
+        </p>
+        <div class="credit-links">
+          <a class="text-link" href="https://github.com/njthomson/SrvSurvey"
+            >Original SrvSurvey <span aria-hidden="true">↗</span></a
+          ><a class="text-link" href="https://github.com/Fenris159/SrvSurvey"
+            >XP source &amp; contributions <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <p class="fine-print">
+          Independent third-party software. Not affiliated with or endorsed by
+          Frontier Developments. Elite Dangerous and related game imagery belong
+          to their respective rights holders. SrvSurvey-XP source is available
+          under the GNU GPL v3.
+        </p>
+      </section>
+    </main>
+    <footer class="site-footer shell">
+      <a class="brand" href="./"
+        ><img src="assets/logo.png" width="30" height="30" alt="" /><span
+          >SrvSurvey-XP</span
+        ></a
+      >
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy Policy</a
+        ><a href="terms.html">Terms of Service</a
+        ><a href="https://github.com/Fenris159/SrvSurvey/issues">Support</a
+        ><a href="../">Fenris projects</a>
+      </nav>
+      <p>Made for commanders. Built in the open.</p>
+    </footer>
+    <dialog
+      id="image-viewer"
+      class="image-viewer"
+      aria-labelledby="image-caption"
+    >
+      <button type="button" class="viewer-close" aria-label="Close screenshot">
+        ×</button
+      ><img id="viewer-image" alt="" />
+      <p id="image-caption"></p>
+      <a id="viewer-original" class="text-link"
+        >Open original image <span aria-hidden="true">↗</span></a
+      >
+    </dialog>
+  </body>
+</html>

@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="How SrvSurvey-XP uses local game data, Google Drive backups, optional third-party integrations and installation activity reporting."
+    />
+    <meta name="theme-color" content="#08121c" />
+    <link
+      rel="canonical"
+      href="https://fenris159.github.io/srvsurvey/privacy.html"
+    />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="stylesheet" href="site.css" />
+    <script src="site.js" defer></script>
+    <title>Privacy Policy | SrvSurvey-XP</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="./"
+        ><img src="assets/logo.png" width="44" height="44" alt="" /><span
+          >SrvSurvey<span class="brand-xp">-XP</span></span
+        ></a
+      ><button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navigation"
+      >
+        Menu <span aria-hidden="true">☰</span>
+      </button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="./">App home</a><a href="terms.html">Terms of Service</a
+        ><a href="https://github.com/Fenris159/SrvSurvey/issues">Support</a
+        ><a class="nav-download" href="./#download"
+          >Download <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+    <main id="main" class="shell">
+      <div class="legal-header">
+        <p class="eyebrow">Your data / explained</p>
+        <h1>Privacy Policy</h1>
+        <p class="lede">
+          SrvSurvey-XP reads game data on your computer to provide its companion
+          features. This policy explains what stays local, what optional
+          connections send, and the small daily activity report used to count
+          active installations.
+        </p>
+        <p class="legal-meta">
+          Effective date: October 11, 2026 · Project maintainer: Fenris159
+        </p>
+      </div>
+      <div class="legal-layout">
+        <nav class="legal-toc" aria-label="Privacy policy contents">
+          <strong>On this page</strong
+          ><a href="#scope">Scope &amp; commitments</a
+          ><a href="#local-data">Local game data</a
+          ><a href="#integrations">Third-party APIs</a
+          ><a href="#google-drive">Google Drive</a
+          ><a href="#activity">Daily activity reporting</a
+          ><a href="#website">Website &amp; providers</a
+          ><a href="#security">Storage &amp; security</a
+          ><a href="#retention">Retention &amp; deletion</a
+          ><a href="#choices">Your choices</a
+          ><a href="#changes">Policy changes</a><a href="#contact">Contact</a>
+        </nav>
+        <div class="legal-content">
+          <section id="scope">
+            <h2>1. Scope &amp; commitments</h2>
+            <p>
+              This policy covers the SrvSurvey-XP desktop application maintained
+              by <a href="https://github.com/Fenris159">Fenris159</a>, this
+              SrvSurvey-XP website, and the project’s activity-counting
+              endpoint. The original upstream SrvSurvey, third-party services
+              and other applications have their own policies.
+            </p>
+            <div class="legal-callout">
+              <p>
+                <strong
+                  >We do not sell your personal data, use it for advertising, or
+                  collect your Google or Frontier password.</strong
+                >
+                Optional publication and account integrations have separate
+                controls. They can send commander identifiers and gameplay data
+                to the service you enable. Routine network requests and daily
+                activity reporting are described below; the app is not entirely
+                offline.
+              </p>
+            </div>
+            <p>
+              Data is used to provide the features described in the application
+              and this policy. Google Drive backup contents are not forwarded to
+              the project’s telemetry endpoint or to unrelated community
+              integrations.
+            </p>
+          </section>
+          <section id="local-data">
+            <h2>2. Data on your computer</h2>
+            <p>
+              SrvSurvey-XP reads Elite Dangerous journals and auxiliary files
+              such as Status, Cargo, ShipLocker, NavRoute and Market to build
+              its local state. These can contain commander names and Frontier
+              IDs, locations, ship and carrier information, cargo, missions,
+              discoveries, timestamps and other gameplay activity. Supported
+              chat commands are read to operate companion features; raw chat is
+              not part of the daily activity report.
+            </p>
+            <p>
+              The app stores settings, commander profiles, surveys, maps,
+              routes, bookmarks, mining history, cached reference data,
+              screenshots you attach or process, and diagnostic logs in its
+              local data folders. Some local records, notes, file paths and
+              diagnostic exports can identify a commander or computer.
+            </p>
+            <p>
+              Optional screen capture for FSS tuning, first-footfall inference
+              and rig detection processes shared pixels locally. The app does
+              not upload the captured screen as part of detection. On Wayland,
+              the desktop’s screen-sharing picker and permission handling are
+              controlled by the compositor and portal.
+            </p>
+            <p>
+              Diagnostic journal replays remain local until you explicitly
+              export and share them. Redacted exports reduce identifying
+              information but can still contain gameplay details. Review
+              screenshots, logs and exported files before posting them publicly.
+            </p>
+          </section>
+          <section id="integrations">
+            <h2>3. Third-party APIs &amp; community sharing</h2>
+            <p>
+              Public lookups may send search terms, system names or addresses,
+              coordinates, route criteria, commodity filters and similar request
+              data to services such as Canonn, Spansh, EDSM, Inara, Raven
+              Colonial and application reference hosts. These requests do not
+              require every optional publication setting to be enabled. Public
+              Community Goal lookups use an application identifier without your
+              personal Inara key or commander identity.
+            </p>
+            <p>
+              Account linking and publication are separate from these reference
+              lookups. Their controls and credentials determine which services
+              receive your gameplay data:
+            </p>
+            <div
+              class="table-scroll"
+              tabindex="0"
+              role="region"
+              aria-label="Optional integrations and data sent"
+            >
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Service / feature</th>
+                    <th scope="col">When used</th>
+                    <th scope="col">Data involved</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Frontier Companion API</td>
+                    <td>
+                      When you explicitly link a Frontier account through OAuth.
+                    </td>
+                    <td>
+                      Authorization tokens and requests for commander, ship,
+                      carrier, market, shipyard and Community Goal data.
+                      Dashboard results are stored locally. Your Frontier
+                      password is entered with Frontier, not SrvSurvey-XP.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>EDDN publication</td>
+                    <td>
+                      After enabling its dedicated sharing control; off by
+                      default.
+                    </td>
+                    <td>
+                      Supported live journal and validated companion-file
+                      observations, plus the commander name required as the
+                      uploader identifier. EDDN obfuscates that identifier
+                      before redistribution. Shared observations can enter
+                      public community datasets.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Inara synchronization</td>
+                    <td>
+                      After saving that commander’s personal Inara API key.
+                    </td>
+                    <td>
+                      The key, commander context and supported live gameplay
+                      updates, such as account, ship, inventory and activity
+                      information.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Direct EDSM synchronization</td>
+                    <td>
+                      After saving that commander’s EDSM API key; separate from
+                      EDDN.
+                    </td>
+                    <td>
+                      Commander name, key and supported live journal events
+                      accepted by EDSM, with relevant game and location context.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>VoxStellar publication</td>
+                    <td>
+                      After enabling its independent Boxel-workspace upload
+                      option.
+                    </td>
+                    <td>
+                      Commander name and supported new discovery / travel
+                      journal events, including system and scan data.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Raven Colonial</td>
+                    <td>
+                      When you enable and use the colonization integration and
+                      its applicable cargo-sync / publishing options.
+                    </td>
+                    <td>
+                      Commander attribution, project and construction-site
+                      details, deliveries and contributions, market / carrier
+                      identifiers, and permitted cargo counts or adjustments.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Canonn / discovery publication</td>
+                    <td>
+                      After enabling the relevant settlement-geometry or Green
+                      Gas Giant publication option, or explicitly using a
+                      supported share action.
+                    </td>
+                    <td>
+                      The observation, survey or geometry information needed by
+                      the selected feature, with any included location and
+                      contributor attribution.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              The project does not automatically enable all publishers when you
+              link one service. Disable equivalent sharing in other companion
+              applications when necessary to avoid duplicate submissions. A
+              service’s own policy governs its storage, visibility, retention
+              and redistribution; already-published community data may not be
+              removable through SrvSurvey-XP.
+            </p>
+            <p>
+              More implementation details are available in the
+              <a
+                href="https://github.com/Fenris159/SrvSurvey/blob/SrvSurvey-Avalonia/docs/PRIVACY.md"
+                >repository’s network privacy documentation</a
+              >. Third-party policies and APIs may change independently of the
+              app.
+            </p>
+          </section>
+          <section id="google-drive">
+            <h2>4. Google Drive backup &amp; sync</h2>
+            <h3>Authorization &amp; access</h3>
+            <p>
+              Google Drive is optional. Select Link Google Drive in Settings →
+              Data &amp; migration to authorize the application in your browser.
+              SrvSurvey-XP requests only
+              <code>https://www.googleapis.com/auth/drive.appdata</code>,
+              allowing it to manage its own private application-data files. It
+              does not request access to your ordinary Drive documents, Gmail,
+              contacts or other Google account content. The app does not receive
+              your Google password.
+            </p>
+            <p>
+              Backups are stored in Google Drive’s hidden
+              <code>appDataFolder</code>. They do not appear as ordinary files
+              in My Drive, cannot be shared through the normal Drive sharing
+              interface, and use your Google storage. See
+              <a
+                href="https://developers.google.com/workspace/drive/api/guides/appdata"
+                >Google’s app-data documentation</a
+              >.
+            </p>
+            <h3>What is uploaded &amp; why</h3>
+            <p>
+              Backups contain supported preferences and saved work: themes,
+              colors, overlay preferences, shortcuts, workspace and search
+              choices, routes, bookmarks, mining history, surveys, exploration
+              records and other supported profile data. They can include
+              user-entered notes, commander-related identifiers, game locations
+              and timestamps. Machine sections include device identity / name,
+              operating system and supported hardware-dependent settings, such
+              as overlay placement and capture configuration, so those settings
+              restore only on the appropriate machine.
+            </p>
+            <p>
+              Authentication credentials, API keys, raw journal files,
+              screenshot files and queued API reports are excluded from profile
+              backups. Backup and restore are not a complete disk backup;
+              exported files, attachments and unsupported data may need a
+              separate copy.
+            </p>
+            <p>
+              When automatic sync is enabled, the app checks cloud changes on
+              startup and saves on orderly shutdown; a closing app can finish
+              its backup in the background. Manual backup, sync, download and
+              restore actions operate when you request them. Downloaded cloud
+              data is used to restore or merge your local SrvSurvey-XP profile,
+              with conflict choices when required.
+            </p>
+            <h3>Use, sharing &amp; removal</h3>
+            <p>
+              Google receives the backup files to provide the storage you
+              requested. The app does not send their contents to the
+              maintainer’s server, advertisers or other community APIs. They are
+              not used to train AI models, build advertising profiles or sell
+              information. Maintainers do not obtain access to your Drive merely
+              because the OAuth project belongs to the maintainer.
+            </p>
+            <p>
+              SrvSurvey-XP’s use and transfer of information received from
+              Google APIs follows the
+              <a
+                href="https://developers.google.com/terms/api-services-user-data-policy"
+                >Google API Services User Data Policy</a
+              >, including its Limited Use requirements. Access is used for the
+              backup, restore and sync features you authorize.
+            </p>
+            <p>
+              Use the cloud-history controls to download or permanently delete
+              an individual backup or clear the listed SrvSurvey-XP cloud
+              backups. Disconnect removes local Google authorization; it does
+              not delete existing cloud files. To stop future uploads, disable
+              automatic sync or disconnect on each linked computer. You may also
+              revoke the app’s authorization through
+              <a href="https://myaccount.google.com/connections"
+                >your Google Account connections</a
+              >. Revocation alone does not promise deletion of existing backups;
+              use the app’s deletion controls or Google Drive’s app-management
+              controls.
+            </p>
+          </section>
+          <section id="activity">
+            <h2>5. Daily installation activity</h2>
+            <p>
+              Current releases automatically attempt a check-in once per UTC day
+              on the first application session. This is separate from the
+              optional community-publication controls and is not tied to a
+              commander account.
+            </p>
+            <ul>
+              <li>
+                <strong>Random installation ID:</strong> generated locally and
+                reused by instances sharing that installation’s data directory.
+                It is not a commander name, Frontier ID or hardware fingerprint.
+              </li>
+              <li>
+                <strong>Application version and operating-system label:</strong>
+                used to understand which releases and platforms are active.
+              </li>
+              <li>
+                <strong>First-seen and last-seen times:</strong> recorded by the
+                server to calculate seven-day and thirty-day activity.
+              </li>
+            </ul>
+            <p>
+              The check-in goes to the project’s Cloudflare Worker at
+              <code>srvsurvey-telemetry.fenrisnihilus.workers.dev</code>. The
+              configured user record stores these fields, not your journals,
+              chat, game location, email, Google account, Frontier account or
+              API credentials. As with any network request, Cloudflare can
+              process connection metadata such as the source IP address under
+              its own service policies.
+            </p>
+            <p>
+              A persistent ID makes this reporting
+              <strong>pseudonymous rather than fully anonymous</strong>. Public
+              endpoints and badges publish aggregate activity, operating-system
+              and version totals, not individual installation IDs. Counts
+              represent installations; a person using multiple independent data
+              folders or computers may be counted more than once.
+            </p>
+            <p>
+              Current releases do not offer an in-app switch for this check-in.
+              Blocking that endpoint at the network level prevents reporting and
+              does not stop local companion features. Deleting the local
+              activity-state file generates a new ID on the next run and does
+              not delete the previous server record.
+            </p>
+          </section>
+          <section id="website">
+            <h2>6. Website, downloads &amp; network providers</h2>
+            <p>
+              This SrvSurvey-XP website is a static GitHub Pages site. It has no
+              account login, advertising scripts, analytics tracker or
+              project-set cookies. Its screenshot viewer and navigation run in
+              your browser. Images, styles and scripts for this page are served
+              from this site; browsing it does not send an installation activity
+              check-in.
+            </p>
+            <p>
+              GitHub receives normal hosting request information when you visit,
+              download releases or use the issue tracker. See
+              <a
+                href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+                >GitHub’s Privacy Statement</a
+              >. Links to external websites send you to services with their own
+              policies. Community services and Cloudflare likewise receive
+              normal network metadata for requests directed to them; see
+              <a href="https://www.cloudflare.com/privacypolicy/"
+                >Cloudflare’s Privacy Policy</a
+              >.
+            </p>
+            <p>
+              The desktop app may contact GitHub and configured reference hosts
+              to check or retrieve releases and catalogs. These requests are
+              separate from publishing gameplay data.
+            </p>
+          </section>
+          <section id="security">
+            <h2>7. Storage &amp; security</h2>
+            <p>
+              Supported credentials and authorization tokens are stored on your
+              computer, not in the project’s activity database. Protection
+              depends on the integration and platform. Frontier tokens use
+              operating-system credential protection; Google authorization uses
+              Windows Data Protection on Windows and a user-only authorization
+              file on Linux. Personal API keys are stored in local commander
+              settings. Protect your computer, backups and local profile files
+              accordingly.
+            </p>
+            <p>
+              Network integrations use HTTPS where supported by their service
+              endpoints. Google controls access to its app-data storage.
+              SrvSurvey-XP does not add end-to-end encryption to the profile
+              backup contents. Local backups and downloaded exports should be
+              treated as files that may contain private notes or gameplay
+              information.
+            </p>
+            <p>
+              No storage or transport method guarantees complete security. If
+              you find a suspected exposure, contact the maintainer without
+              publishing tokens, keys or unredacted account details.
+            </p>
+          </section>
+          <section id="retention">
+            <h2>8. Retention &amp; deletion</h2>
+            <p>
+              Local profiles, settings, records and diagnostic files remain
+              until you remove them or the application’s applicable cleanup /
+              retention routines replace them. Uninstalling an executable may
+              leave its data directory intact. Back up wanted data before
+              deleting a profile.
+            </p>
+            <p>
+              Profile backup history retains up to ten recent local backups and
+              ten recent cloud backups per machine under the current
+              implementation. New linked-machine activity can create additional
+              backups after you clear cloud history. Individual cloud deletion
+              is permanent.
+            </p>
+            <p>
+              Activity records currently have no automatic expiry configured in
+              the Worker. The last-seen time makes inactive installations fall
+              out of seven-day and thirty-day counts, while their entry can
+              remain in the lifetime total until removed. For a deletion
+              request, the maintainer needs your installation ID to locate a
+              pseudonymous record; a commander name alone cannot identify it.
+            </p>
+            <p>
+              Third-party publishers control their own copies of data you
+              submitted. Removing a key or turning off publication stops future
+              applicable submissions; it does not delete records already held by
+              that service. Contact the relevant service for its deletion
+              options.
+            </p>
+          </section>
+          <section id="choices">
+            <h2>9. Your choices</h2>
+            <ul>
+              <li>
+                Use local companion features without linking Google Drive or
+                Frontier.
+              </li>
+              <li>
+                Enable or disable each available publisher separately, and
+                remove personal API keys when you no longer want that
+                integration.
+              </li>
+              <li>
+                Manage local backups or export files without a Google account.
+              </li>
+              <li>
+                Delete cloud backups before disconnecting if you want both
+                authorization and stored files removed; repeat any required
+                settings change on other linked machines.
+              </li>
+              <li>
+                Review and redact logs, screenshots, notes and diagnostic
+                bundles before sharing them.
+              </li>
+              <li>
+                Ask the maintainer about access, correction or deletion of
+                project-held data. Available rights and any required retention
+                depend on applicable law and the service involved.
+              </li>
+            </ul>
+            <p>
+              These controls do not promise that a service can retract
+              observations already redistributed to public community datasets.
+              The project does not sell personal data or offer a marketing-data
+              exchange.
+            </p>
+          </section>
+          <section id="changes">
+            <h2>10. Changes to this policy</h2>
+            <p>
+              The effective date above identifies this policy version. Material
+              changes to data practices should be reflected here and, where
+              required, communicated in the application or release notes. Newly
+              introduced optional permissions or publication features should
+              provide their applicable controls and disclosures.
+            </p>
+          </section>
+          <section id="contact">
+            <h2>11. Contact</h2>
+            <p>
+              The project maintainer is
+              <a href="https://github.com/Fenris159">Fenris159 on GitHub</a>.
+              Use the
+              <a href="https://github.com/Fenris159/SrvSurvey/issues"
+                >SrvSurvey-XP issue tracker</a
+              >
+              for general support or to request a private contact route for a
+              privacy matter. Issues are public:
+              <strong
+                >do not include passwords, API keys, tokens, unredacted logs or
+                private account details</strong
+              >. We will not ask you to supply your Google or Frontier password.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer shell">
+      <a class="brand" href="./"
+        ><img src="assets/logo.png" width="30" height="30" alt="" /><span
+          >SrvSurvey-XP</span
+        ></a
+      >
+      <nav aria-label="Footer">
+        <a href="./">App home</a
+        ><a href="privacy.html" aria-current="page">Privacy Policy</a
+        ><a href="terms.html">Terms of Service</a
+        ><a href="https://github.com/Fenris159/SrvSurvey/issues">Support</a
+        ><a href="../">Fenris projects</a>
+      </nav>
+      <p>
+        Independent Elite Dangerous companion · Open source under the GNU GPL
+        v3.
+      </p>
+    </footer>
+  </body>
+</html>
