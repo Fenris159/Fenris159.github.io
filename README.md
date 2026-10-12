@@ -41,6 +41,20 @@ root homepage. Do not remove the verification file/tag after approval. Publishin
 the site does not itself verify OAuth branding; Google's review determines
 acceptance.
 
+### Search discovery
+
+The XML sitemap at <https://fenris159.github.io/sitemap.xml> lists the portfolio,
+application homepage, Privacy Policy and Terms of Service. `robots.txt` points
+crawlers to it. Keep the sitemap in sync when adding or removing public pages;
+do not list asset files or ownership verification files.
+
+For the Search Console property `https://fenris159.github.io/`, submit
+`sitemap.xml` in **Sitemaps → Add a new sitemap**. The `/srvsurvey/` HTML page is
+not itself a sitemap; an entry for that page can be removed from the Sitemaps
+report and replaced with `sitemap.xml`. Sitemap submission helps search
+discovery; it does not replace Search Console ownership verification or Google
+OAuth branding review.
+
 Recheck the privacy policy when integrations, permissions, payloads, retention,
 activity reporting or credential handling change. Update the policy dates when
 data practices change. GitHub is the default public support route; do not post
