@@ -1,7 +1,9 @@
 const canvas = document.querySelector("#stars");
-const ctx = canvas.getContext("2d");
+const ctx = canvas?.getContext("2d");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const repoTracker = document.querySelector("#repo-tracker");
+const repoCacheKey = "fenris159:top-repos:v1";
+const repoCacheLifetime = 15 * 60 * 1000;
 const excludedRepoNames = new Set(["ravencolonialweb", "fenris159.github.io"]);
 const repoDescriptionOverrides = new Map([
   ["ravencolonial_edmc", "EDMC companion plugin for colonization tracking, overlay workflows, and update handling."],
@@ -12,15 +14,14 @@ let height = 0;
 let stars = [];
 let pointer = { x: 0, y: 0, active: false };
 let animationFrame = 0;
+let resizeFrame = 0;
 
-function resize() {
+function resize(viewportWidth, viewportHeight) {
   const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-  width = window.innerWidth;
-  height = window.innerHeight;
+  width = viewportWidth;
+  height = viewportHeight;
   canvas.width = Math.floor(width * pixelRatio);
   canvas.height = Math.floor(height * pixelRatio);
-  canvas.style.width = `${width}px`;
-  canvas.style.height = `${height}px`;
   ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
   const starCount = Math.min(180, Math.max(72, Math.floor((width * height) / 9500)));
@@ -32,6 +33,7 @@ function resize() {
     phase: Math.random() * Math.PI * 2,
     hue: index % 7 === 0 ? "amber" : index % 5 === 0 ? "cyan" : "green",
   }));
+  start();
 }
 
 function colorFor(star, alpha) {
@@ -45,6 +47,11 @@ function colorFor(star, alpha) {
 }
 
 function draw() {
+  animationFrame = 0;
+  if (document.hidden || !width || !height) {
+    return;
+  }
+
   ctx.clearRect(0, 0, width, height);
   ctx.fillStyle = "#050912";
   ctx.fillRect(0, 0, width, height);
@@ -88,12 +95,17 @@ function draw() {
     }
   }
 
-  animationFrame = window.requestAnimationFrame(draw);
+  if (!reducedMotion.matches) {
+    animationFrame = window.requestAnimationFrame(draw);
+  }
 }
 
 function start() {
   window.cancelAnimationFrame(animationFrame);
-  draw();
+  animationFrame = 0;
+  if (!document.hidden && width && height) {
+    animationFrame = window.requestAnimationFrame(draw);
+  }
 }
 
 function formatDate(value) {
@@ -161,12 +173,49 @@ function renderRepos(repos) {
     .join("");
 }
 
+function isValidRepo(repo) {
+  return repo
+    && typeof repo.name === "string"
+    && typeof repo.html_url === "string"
+    && repo.html_url.startsWith("https://github.com/")
+    && Number.isInteger(repo.stargazers_count) && repo.stargazers_count >= 0
+    && Number.isInteger(repo.forks_count) && repo.forks_count >= 0
+    && (repo.description == null || typeof repo.description === "string")
+    && (repo.language == null || typeof repo.language === "string")
+    && (!repo.pushed_at || Number.isFinite(Date.parse(repo.pushed_at)));
+}
+
+function readRepoCache() {
+  try {
+    const cached = JSON.parse(localStorage.getItem(repoCacheKey));
+    if (cached
+      && Number.isFinite(cached.fetchedAt)
+      && cached.fetchedAt <= Date.now()
+      && Array.isArray(cached.repos)
+      && cached.repos.length > 0 && cached.repos.length <= 5
+      && cached.repos.every(isValidRepo)) {
+      return cached;
+    }
+  } catch {
+    // Storage may be blocked or contain data from an interrupted write.
+  }
+  return null;
+}
+
 async function loadTopRepos() {
   if (!repoTracker) {
     return;
   }
 
   try {
+    const cached = readRepoCache();
+    if (cached) {
+      renderRepos(cached.repos);
+      if (Date.now() - cached.fetchedAt < repoCacheLifetime) {
+        return;
+      }
+    }
+
     const response = await fetch("https://api.github.com/users/Fenris159/repos?per_page=100&sort=updated", {
       headers: { Accept: "application/vnd.github+json" },
     });
@@ -177,7 +226,7 @@ async function loadTopRepos() {
 
     const repos = await response.json();
     const topRepos = repos
-      .filter((repo) => !excludedRepoNames.has(repo.name.toLowerCase()))
+      .filter((repo) => isValidRepo(repo) && !excludedRepoNames.has(repo.name.toLowerCase()))
       .sort((left, right) => {
         const stars = right.stargazers_count - left.stargazers_count;
         if (stars) return stars;
@@ -189,21 +238,65 @@ async function loadTopRepos() {
       })
       .slice(0, 5);
 
+    if (!topRepos.length) {
+      throw new Error("GitHub returned no repositories");
+    }
     renderRepos(topRepos);
-  } catch (error) {
+    try {
+      localStorage.setItem(repoCacheKey, JSON.stringify({ fetchedAt: Date.now(), repos: topRepos }));
+    } catch {
+      // A blocked or full cache must not prevent a successful live refresh.
+    }
+  } catch {
     repoTracker.dataset.state = "fallback";
   }
 }
 
-window.addEventListener("resize", resize);
-window.addEventListener("pointermove", (event) => {
-  pointer = { x: event.clientX, y: event.clientY, active: true };
-});
-window.addEventListener("pointerleave", () => {
-  pointer.active = false;
-});
-reducedMotion.addEventListener("change", start);
+function observeTopRepos() {
+  if (!repoTracker) {
+    return;
+  }
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        observer.disconnect();
+        loadTopRepos();
+      }
+    }, { rootMargin: "400px" });
+    observer.observe(repoTracker);
+  } else {
+    // Older browsers still get live data, after the initial page load.
+    const schedule = () => window.setTimeout(loadTopRepos, 1000);
+    if (document.readyState === "complete") {
+      schedule();
+    } else {
+      window.addEventListener("load", schedule, { once: true });
+    }
+  }
+}
 
-resize();
-start();
-loadTopRepos();
+if (canvas && ctx) {
+  // ResizeObserver supplies dimensions after layout; no synchronous viewport reads.
+  const observer = new ResizeObserver(([entry]) => {
+    window.cancelAnimationFrame(resizeFrame);
+    resizeFrame = window.requestAnimationFrame(() => {
+      resizeFrame = 0;
+      resize(entry.contentRect.width, entry.contentRect.height);
+    });
+  });
+  observer.observe(canvas);
+
+  window.addEventListener("pointermove", (event) => {
+    pointer = { x: event.clientX, y: event.clientY, active: true };
+  }, { passive: true });
+  window.addEventListener("pointerleave", () => {
+    pointer.active = false;
+  });
+  document.addEventListener("visibilitychange", () => {
+    pointer.active = false;
+    start();
+  });
+  reducedMotion.addEventListener("change", start);
+}
+
+observeTopRepos();

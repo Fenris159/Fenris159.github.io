@@ -32,6 +32,9 @@ class Document(HTMLParser):
         for key in ("href", "src"):
             if attrs.get(key):
                 self.refs.append(attrs[key])
+        for candidate in attrs.get("srcset", "").split(","):
+            if candidate.strip():
+                self.refs.append(candidate.split()[0])
 
 
 root = Path(__file__).resolve().parents[1]
