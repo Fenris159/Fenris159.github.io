@@ -29,7 +29,7 @@ class Document(HTMLParser):
             self.title_found = True
         if tag == "img" and "alt" not in attrs:
             self.errors.append("image missing alt attribute")
-        for key in ("href", "src"):
+        for key in ("href", "src", "data-preview"):
             if attrs.get(key):
                 self.refs.append(attrs[key])
         for candidate in attrs.get("srcset", "").split(","):

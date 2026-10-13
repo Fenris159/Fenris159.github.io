@@ -1,21 +1,4 @@
-// The site works without JavaScript; this adds mobile navigation and screenshot previews.
-const menuButton = document.querySelector(".nav-toggle");
-const navigation = document.querySelector("#navigation");
-if (menuButton && navigation) {
-  document.documentElement.classList.add("has-js");
-  menuButton.addEventListener("click", () => {
-    const expanded = menuButton.getAttribute("aria-expanded") === "true";
-    menuButton.setAttribute("aria-expanded", String(!expanded));
-    navigation.classList.toggle("is-open", !expanded);
-  });
-  navigation.addEventListener("click", (event) => {
-    if (event.target.closest("a")) {
-      menuButton.setAttribute("aria-expanded", "false");
-      navigation.classList.remove("is-open");
-    }
-  });
-}
-
+// Screenshot links remain usable without this optional dialog enhancement.
 const viewer = document.querySelector("#image-viewer");
 if (viewer && typeof viewer.showModal === "function") {
   const image = viewer.querySelector("#viewer-image");
@@ -33,7 +16,7 @@ if (viewer && typeof viewer.showModal === "function") {
       )
         return;
       event.preventDefault();
-      image.src = link.href;
+      image.src = link.dataset.preview || link.href;
       image.alt = link.querySelector("img").alt;
       caption.textContent = link.dataset.caption;
       original.href = link.href;

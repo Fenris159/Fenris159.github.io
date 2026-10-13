@@ -12,16 +12,35 @@
       rel="canonical"
       href="https://fenris159.github.io/srvsurvey/terms.html"
     />
-    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32" />
     <link rel="stylesheet" href="site.css" />
-    <script src="site.js" defer></script>
+    <script src="site.js?v=2" defer></script>
+    <!-- srvsurvey-navigation:start (generated from navigation.js) -->
+    <script>
+      // Run before the body is parsed so mobile navigation has its final first-paint height.
+      document.documentElement.classList.add("has-js");
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest(".nav-toggle");
+        const link = event.target.closest("#navigation a");
+        if (!button && !link) return;
+
+        const toggle = button || document.querySelector(".nav-toggle");
+        const navigation = document.querySelector("#navigation");
+        if (!toggle || !navigation) return;
+
+        const expanded = button && toggle.getAttribute("aria-expanded") !== "true";
+        toggle.setAttribute("aria-expanded", String(Boolean(expanded)));
+        navigation.classList.toggle("is-open", Boolean(expanded));
+      });
+    </script>
+    <!-- srvsurvey-navigation:end -->
     <title>Terms of Service | SrvSurvey-XP</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="brand" href="./"
-        ><img src="assets/logo.png" width="44" height="44" alt="" /><span
+        ><img src="assets/logo-44.webp" srcset="assets/logo-36.webp 36w, assets/logo-44.webp 44w, assets/logo-72.webp 72w, assets/logo-88.webp 88w, assets/logo-132.webp 132w" sizes="(max-width: 800px) 36px, 44px" width="44" height="44" alt="" /><span
           >SrvSurvey<span class="brand-xp">-XP</span></span
         ></a
       ><button
@@ -303,7 +322,7 @@
     </main>
     <footer class="site-footer shell">
       <a class="brand" href="./"
-        ><img src="assets/logo.png" width="30" height="30" alt="" /><span
+        ><img src="assets/logo-44.webp" srcset="assets/logo-36.webp 36w, assets/logo-44.webp 44w, assets/logo-72.webp 72w, assets/logo-88.webp 88w, assets/logo-132.webp 132w" sizes="(max-width: 800px) 36px, 30px" width="30" height="30" alt="" /><span
           >SrvSurvey-XP</span
         ></a
       >

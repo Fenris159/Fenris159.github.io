@@ -1,11 +1,17 @@
 {
   "name": "fenris159-portfolio",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
-    "check": "node --check script.js && python3 tools/sync-portfolio-styles.py --check && python3 tools/check-srvsurvey-site.py && npm test",
-    "test": "node --test tools/portfolio.test.cjs"
+    "images:srvsurvey": "node tools/generate-srvsurvey-images.cjs",
+    "check": "node --check script.js && node --check srvsurvey/navigation.js && node --check srvsurvey/site.js && python3 tools/sync-portfolio-styles.py --check && python3 tools/sync-srvsurvey-assets.py --check && python3 tools/check-srvsurvey-site.py && npm test",
+    "test": "node --test tools/*.test.cjs"
   },
   "devDependencies": {
-    "playwright": "1.64.0"
+    "csso": "5.0.5",
+    "playwright": "1.64.0",
+    "sharp": "0.35.5"
   }
 }
