@@ -26,7 +26,7 @@ That PageSpeed cache-lifetime warning cannot be removed by adding repository
 headers; these changes reduce the requested bytes and avoid repeated GitHub API
 calls instead.
 
-For validation, use Node.js 20 or later and Python 3:
+For validation, use Node.js 20.9 or later and Python 3:
 
 ```console
 npm ci
@@ -63,10 +63,35 @@ dialog with ordinary image links as the no-JavaScript fallback.
 ### Local preview and checks
 
 Run `python3 -m http.server 8765 --bind 127.0.0.1` from this repository, then visit
-`http://127.0.0.1:8765/srvsurvey/`. Validate JavaScript with
-`node --check srvsurvey/site.js` and check local links and image files with
-`python3 tools/check-srvsurvey-site.py`. Check desktop and mobile layouts before
-publishing. GitHub Pages publishes `main` from the repository root.
+`http://127.0.0.1:8765/srvsurvey/`. Run `npm run check` after the dependency and
+browser setup above. This also checks SrvSurvey JavaScript, generated inline
+assets, original-image links and all responsive image sources. Browser checks
+cover 320–1920px layouts, larger display pixel ratios, delayed and blocked
+JavaScript, no-JavaScript navigation, screenshot loading and the image dialog.
+GitHub Pages publishes `main` from the repository root.
+
+### PageSpeed maintenance
+
+The homepage inlines minified CSS generated from `srvsurvey/site.css`. All three
+SrvSurvey pages initialize mobile navigation in the head using the small inline
+`srvsurvey/navigation.js` source, keeping the first-paint header height stable.
+After editing either source, run `python3 tools/sync-srvsurvey-assets.py`;
+`--check` detects stale generated blocks. Install dependencies with `npm ci`
+before running the generator; CSSO minifies CSS without restructuring rules.
+
+`npm run images:srvsurvey` generates responsive WebP logo and screenshot variants
+from the PNG originals and a small PNG favicon. Sharp uses quality 85 and smart
+chroma subsampling; originals remain available for social previews and explicit
+full-resolution image links. Keep `srcset` and `sizes` aligned with the page's
+display sizes. The hero logo and cockpit screenshot are eager with high fetch
+priority because either can be LCP at different viewport sizes. Other screenshot
+thumbnails load lazily. The dialog uses the optimized `data-preview` image, and
+its “Open original image” link retains the full-resolution PNG.
+
+The screenshot script uses a versioned URL (`site.js?v=2`) to prevent cached
+earlier navigation handlers from conflicting with the new inline menu. Bump the
+version when changing script behavior that must match new markup. GitHub Pages'
+asset cache lifetime is still controlled by the host.
 
 ### Google OAuth branding
 
