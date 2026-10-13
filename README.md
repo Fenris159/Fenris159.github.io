@@ -2,6 +2,44 @@
 
 Personal GitHub Pages site for Fenris.
 
+## Portfolio performance
+
+The root page retains its static repository list while refreshing GitHub data
+when the list comes within 400 pixels of the viewport. Successful results are
+cached locally for 15 minutes. A failed request or unavailable browser storage
+keeps the existing content usable.
+
+The small stylesheet is inlined into `index.html` to remove a render-blocking
+request. Edit `styles.css`, then run `python3 tools/sync-portfolio-styles.py` to
+update the generated block. `--check` verifies that they match. JavaScript is
+deferred, and the starfield uses dimensions delivered by `ResizeObserver`
+instead of synchronous viewport reads. It pauses in hidden tabs and draws a
+single static frame when reduced motion is requested.
+
+The 460 × 460 avatar is served as a 19,664-byte WebP, with the original
+31,580-byte JPEG retained for browsers without WebP support. The layout and
+image dimensions are preserved.
+
+GitHub Pages currently serves assets with `Cache-Control: max-age=600` and
+[does not support custom response headers](https://github.com/orgs/community/discussions/60087).
+That PageSpeed cache-lifetime warning cannot be removed by adding repository
+headers; these changes reduce the requested bytes and avoid repeated GitHub API
+calls instead.
+
+For validation, use Node.js 20 or later and Python 3:
+
+```console
+npm ci
+npx playwright install chromium
+npm run check
+```
+
+The browser checks cover initial requests, desktop and mobile layouts, repository
+ranking and caching, API failures, blocked or corrupt storage, no-JavaScript
+content, resizing, reduced motion, and hidden-tab animation. An existing Chromium
+installation can be selected with `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
+The site remains buildless; Node and Playwright are used only for checks.
+
 ## SrvSurvey-XP
 
 The application site lives at <https://fenris159.github.io/srvsurvey/>. Its
